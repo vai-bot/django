@@ -5,5 +5,6 @@ urlpatterns = [
     path("members/", views.members, name="members"),
     path("mypage/", views.members, name="mypage"),
     path("numbers/", views.number_view, name="number_view"),
-    path("form/", views.form_c, name="form_c"), 
+    path("form/", views.Insert_Data, name="Insert_Data"), 
+    path("values/" ,views.values, name="values")
 ]
