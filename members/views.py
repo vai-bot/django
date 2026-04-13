@@ -4,6 +4,7 @@ from django.shortcuts import render,redirect
 from django.db import IntegrityError
 from django.contrib import messages
 from .models import MyTable
+from django.core.paginator import Paginator
 
 
 def members(request):
@@ -40,3 +41,12 @@ def values(request):
     "mymembers" : mymembers,
   }
   return HttpResponse(template.render(context,request))
+
+def show_data(request):
+  data_list=MyTable.objects.all().order_by("-id")
+
+  paginator=Paginator(data_list,5)  #5 rows per page
+  page_number=request.GET.get("page")
+  page_obj=paginator.get_page(page_number)
+
+  return render(request,"show.html",{"page_obj":page_obj})
