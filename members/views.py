@@ -50,3 +50,14 @@ def show_data(request):
   page_obj=paginator.get_page(page_number)
 
   return render(request,"show.html",{"page_obj":page_obj})
+
+def delete_data(request, id):
+    try:
+        obj=MyTable.objects.get(id=id)
+        obj.delete()
+        messages.success(request, "Data deleted successfully")
+    except:
+        messages.error(request, "Data not found")
+
+    return redirect("show")
+  

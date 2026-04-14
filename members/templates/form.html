@@ -10,20 +10,22 @@
     <div class="form-contains">
         <h2>Insert_Data</h2>
         <form method="POST">
-            <div>
-                <lable>First Name</lable>
-                <input type="text" name="name" required>
-            </div>
-            <div>
-                <lable>Subject</lable>
-                <input type="text" name="subject" required>
-            </div>
-            <div>
-                <lable>Email</lable>
-                <input type="email" name="email" required>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
+    {% csrf_token %}
+    
+    <div>
+        <label>First Name</label>
+        <input type="text" name="name" required>
+    </div>
+    <div>
+        <label>Subject</label>
+        <input type="text" name="subject" required>
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="email" name="email" required>
+    </div>
+    <button type="submit">Submit</button>
+    </form>
         
     </div>
 </body>

@@ -22,12 +22,16 @@
                 <td>({i.name})</td>\
                 <td>({i.subject})</td>
                 <td>({i.email})</td>
+                <td>
+                    <button data-id="{{i.id}}">
+                        Delete
+                    </button>
+                </td>
             </tr>
             {% endfor %}
         </table>
 
         <!--Paginator-->
-        < class="Paginator">
     {% if page_obj.has_previous %}
         <a href="?page=1">First</a>
         <a href="?page={{ page_obj.previous_page_number }}">Prev</a>
